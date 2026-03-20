@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Hari Raya</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #0f172a, #1e293b);
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      padding: 50px 20px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      opacity: 0.8;
+    }
+
+    .card {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      display: inline-block;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #22c55e;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🌙 Selamat Hari Raya</h1>
+    <p>Maaf Zahir & Batin</p>
+
+    <div class="card">
+      <p>Semoga hari raya ini membawa kebahagiaan kepada semua ✨</p>
+
+      <button onclick="playAudio()">Play Lagu Raya 🎶</button>
+    </div>
+  </div>
+
+  <audio id="audio" loop>
+    <source src="Suasana Hari Raya - Anuar Zain & Ellina.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playAudio() {
+      document.getElementById("audio").play();
+    }
+  </script>
+
+</body>
+</html>
