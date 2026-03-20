@@ -1,0 +1,295 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Hari Raya</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:wght@300;400;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{width:100%;min-height:100vh;background:#1c1a12;font-family:'Lato',sans-serif;overflow-x:hidden;}
+  .card{position:relative;width:100%;min-height:100vh;background:linear-gradient(170deg,#1c1a12 0%,#2e2a1a 25%,#1f1c10 60%,#0f0e08 100%);overflow:hidden;display:flex;flex-direction:column;}
+  .strip{width:100%;height:10px;flex-shrink:0;position:relative;z-index:3;background:repeating-linear-gradient(90deg,#9A906B 0px,#9A906B 12px,#c4b88a 12px,#c4b88a 24px,#6e6449 24px,#6e6449 36px,#c4b88a 36px,#c4b88a 48px);}
+  .sp{position:absolute;border-radius:50%;background:#c4b88a;animation:twinkle 2.5s ease-in-out infinite;z-index:1;pointer-events:none;}
+  @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.9;transform:scale(1.5)}}
+  #fw{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+  .lanterns-row{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 20px 0;position:relative;z-index:2;}
+  .lantern-group{display:flex;flex-direction:column;align-items:center;animation:sway 3.5s ease-in-out infinite;transform-origin:top center;}
+  .lantern-group:last-child{animation-delay:-1.8s;}
+  @keyframes sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
+  .l-string{width:1.5px;height:22px;background:#9A906B;}
+  .l-cap{width:44px;height:10px;background:#9A906B;border-radius:2px;}
+  .l-body{width:40px;height:58px;background:linear-gradient(135deg,#3a5c1c,#4e7a24,#2e4814);border-radius:4px 4px 10px 10px;border:1.5px solid #7ab040;box-shadow:0 0 16px rgba(100,180,40,.7),0 0 32px rgba(100,180,40,.25);position:relative;}
+  .l-body::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 8px,rgba(255,255,255,.09) 8px,rgba(255,255,255,.09) 9px);border-radius:inherit;}
+  .l-base{width:44px;height:10px;background:#9A906B;border-radius:2px;}
+  .l-tassel{display:flex;gap:4px;padding-top:3px;}
+  .l-tassel span{width:1.5px;height:20px;background:#c4b88a;opacity:.85;}
+  .moon-center{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:10px;}
+  .moon-wrap{display:flex;align-items:center;gap:8px;}
+  .moon{width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 38% 38%,#f0edd8,#c4b88a,#9A906B);box-shadow:0 0 20px rgba(154,144,107,.8),0 0 40px rgba(154,144,107,.3);position:relative;animation:moonPulse 4s ease-in-out infinite;}
+  @keyframes moonPulse{0%,100%{box-shadow:0 0 20px rgba(154,144,107,.8),0 0 40px rgba(154,144,107,.3)}50%{box-shadow:0 0 30px rgba(154,144,107,1),0 0 56px rgba(154,144,107,.5)}}
+  .moon::after{content:'';position:absolute;width:54px;height:54px;background:#1f1c10;border-radius:50%;top:-8px;left:20px;}
+  .star-icon{font-size:28px;color:#c4b88a;animation:starGlow 3s ease-in-out infinite;filter:drop-shadow(0 0 6px rgba(154,144,107,.9));}
+  @keyframes starGlow{0%,100%{filter:drop-shadow(0 0 4px rgba(154,144,107,.6))}50%{filter:drop-shadow(0 0 12px rgba(196,184,138,1))}}
+  .title-section{text-align:center;padding:14px 20px 4px;position:relative;z-index:2;}
+  .eid-title{font-family:'Cinzel Decorative',serif;font-size:clamp(30px,9vw,52px);font-weight:700;background:linear-gradient(180deg,#f0edd8 0%,#c4b88a 45%,#9A906B 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;filter:drop-shadow(0 2px 8px rgba(154,144,107,.4));}
+  .eid-year{font-size:clamp(11px,3vw,14px);color:#9A906B;letter-spacing:6px;text-transform:uppercase;margin-top:5px;}
+  .divider{display:flex;align-items:center;gap:8px;padding:10px 32px;position:relative;z-index:2;}
+  .div-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,#9A906B,transparent);}
+  .div-gem{width:7px;height:7px;background:#c4b88a;transform:rotate(45deg);box-shadow:0 0 5px rgba(196,184,138,.8);}
+  .message-box{margin:0 20px;padding:14px 20px;border:1px solid rgba(154,144,107,.4);border-radius:12px;background:rgba(154,144,107,.06);text-align:center;position:relative;z-index:2;}
+  .arabic-text{font-size:clamp(17px,5vw,22px);color:#c4b88a;direction:rtl;margin-bottom:8px;text-shadow:0 0 8px rgba(154,144,107,.5);line-height:1.5;}
+  .malay-text{font-size:clamp(12px,3.2vw,14px);color:#a89e7a;line-height:1.8;font-weight:300;}
+  .malay-text strong{color:#c4b88a;font-weight:700;}
+  .ketupat-banner{display:flex;justify-content:center;align-items:flex-end;padding:16px 16px 8px;position:relative;z-index:2;}
+  .ketupat-banner::before{content:'';position:absolute;top:27px;left:5%;right:5%;height:1.5px;background:linear-gradient(90deg,transparent,#9A906B 15%,#9A906B 85%,transparent);z-index:1;}
+  .kt-item{display:flex;flex-direction:column;align-items:center;position:relative;z-index:2;flex:1;max-width:52px;}
+  .kt-string{width:1.5px;height:14px;background:#9A906B;}
+  .kt-shape{width:clamp(26px,6.5vw,38px);height:clamp(26px,6.5vw,38px);transform:rotate(45deg);border-radius:3px;position:relative;animation:ktFloat 3s ease-in-out infinite;}
+  .kt-shape::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 4px,rgba(255,255,255,.12) 4px,rgba(255,255,255,.12) 5px),repeating-linear-gradient(90deg,transparent,transparent 4px,rgba(255,255,255,.12) 4px,rgba(255,255,255,.12) 5px);border-radius:2px;}
+  .kt-shape.hijau{background:linear-gradient(135deg,#3a5c1c,#5a8c2a,#2e4810);border:1.5px solid #7ab040;box-shadow:0 0 10px rgba(90,140,42,.5);}
+  .kt-shape.emas{background:linear-gradient(135deg,#6e5c2a,#9A906B,#5a4a1e);border:1.5px solid #c4b88a;box-shadow:0 0 10px rgba(154,144,107,.6);}
+  .kt-shape.coklat{background:linear-gradient(135deg,#4a3010,#7a5228,#3a2208);border:1.5px solid #a07840;box-shadow:0 0 8px rgba(122,82,40,.5);}
+  .kt-shape.putih{background:linear-gradient(135deg,#c8c0a0,#e8e0c8,#b0a880);border:1.5px solid #d4cca8;box-shadow:0 0 8px rgba(200,192,160,.4);}
+  @keyframes ktFloat{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(-6px)}}
+  .kt-item:nth-child(2) .kt-shape{animation-delay:-.5s}
+  .kt-item:nth-child(3) .kt-shape{animation-delay:-1s}
+  .kt-item:nth-child(4) .kt-shape{animation-delay:-1.5s}
+  .kt-item:nth-child(5) .kt-shape{animation-delay:-2s}
+  .kt-item:nth-child(6) .kt-shape{animation-delay:-.8s}
+  .kt-item:nth-child(7) .kt-shape{animation-delay:-1.3s}
+  .kt-item:nth-child(8) .kt-shape{animation-delay:-.3s}
+  .music-player{margin:6px 20px 20px;padding:16px 18px;background:rgba(0,0,0,.4);border:1px solid rgba(154,144,107,.45);border-radius:14px;position:relative;z-index:2;}
+  .player-row{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+  .disc{width:46px;height:46px;flex-shrink:0;border-radius:50%;background:conic-gradient(#3a5c1c 0%,#5a8c2a 25%,#9A906B 50%,#c4b88a 75%,#3a5c1c 100%);border:2px solid #9A906B;display:flex;align-items:center;justify-content:center;animation:spin 4s linear infinite paused;box-shadow:0 0 10px rgba(154,144,107,.4);}
+  .disc.playing{animation-play-state:running;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .disc-inner{width:14px;height:14px;border-radius:50%;background:#1c1a12;border:1.5px solid #9A906B;}
+  .song-info{flex:1;min-width:0;}
+  .s-title{font-size:clamp(12px,3.5vw,15px);font-weight:700;color:#c4b88a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .s-artist{font-size:clamp(10px,2.8vw,12px);color:#9A906B;margin-top:2px;}
+  .prog-bar{width:100%;height:4px;background:rgba(154,144,107,.15);border-radius:2px;overflow:hidden;margin-bottom:7px;cursor:pointer;}
+  .prog-fill{height:100%;background:linear-gradient(90deg,#5a8c2a,#9A906B,#c4b88a);width:0%;border-radius:2px;transition:width .2s linear;}
+  .time-row{display:flex;justify-content:space-between;font-size:10px;color:#6e6449;margin-bottom:12px;}
+  .controls{display:flex;align-items:center;justify-content:center;gap:16px;}
+  .btn{background:none;border:1px solid rgba(154,144,107,.4);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#9A906B;transition:all .2s;font-size:14px;width:40px;height:40px;}
+  .btn:hover{background:rgba(154,144,107,.15);border-color:#c4b88a;color:#c4b88a;}
+  .btn-play{width:54px;height:54px;font-size:20px;background:linear-gradient(135deg,#3a5c1c,#5a8c2a);border:2px solid #7ab040;color:#e8f8d0;box-shadow:0 0 12px rgba(90,140,42,.5);}
+  .btn-play:hover{background:linear-gradient(135deg,#4a7022,#6a9c34);}
+  .vol-row{display:flex;align-items:center;gap:10px;margin-top:12px;}
+  .vol-icon{font-size:14px;color:#9A906B;}
+  .vol-slider{flex:1;-webkit-appearance:none;appearance:none;height:3px;border-radius:2px;background:rgba(154,144,107,.3);outline:none;cursor:pointer;}
+  .vol-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#9A906B;cursor:pointer;}
+  .footer{text-align:center;padding:8px 0 14px;position:relative;z-index:2;margin-top:auto;}
+  .footer-text{font-size:10px;color:rgba(154,144,107,.5);letter-spacing:3px;}
+
+  /* ── OVERLAY ── */
+  #enterOverlay{
+    position:fixed;inset:0;z-index:9999;
+    background:linear-gradient(170deg,#1c1a12 0%,#2e2a1a 40%,#0f0e08 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    cursor:pointer;
+    transition:opacity .8s ease;
+  }
+  .ov-moon{font-size:3.5rem;margin-bottom:1.2rem;filter:drop-shadow(0 0 14px rgba(196,184,138,.9));animation:moonPulse 4s ease-in-out infinite;}
+  .ov-title{
+    font-family:'Cinzel Decorative',serif;
+    font-size:clamp(20px,7vw,32px);font-weight:700;
+    background:linear-gradient(180deg,#f0edd8,#c4b88a,#9A906B);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;margin-bottom:6px;text-align:center;
+  }
+  .ov-year{font-size:clamp(10px,3vw,13px);color:#9A906B;letter-spacing:5px;margin-bottom:2.5rem;text-align:center;}
+  .ov-btn{
+    padding:12px 34px;
+    border:1.5px solid rgba(154,144,107,.6);border-radius:50px;
+    font-family:'Lato',sans-serif;font-size:clamp(11px,3vw,13px);
+    letter-spacing:3px;color:#9A906B;background:none;cursor:pointer;
+    animation:ovPulse 2s ease-in-out infinite;
+    transition:all .2s;
+  }
+  .ov-btn:hover{border-color:#c4b88a;color:#c4b88a;background:rgba(154,144,107,.08);}
+  @keyframes ovPulse{0%,100%{opacity:.75;transform:scale(1)}50%{opacity:1;transform:scale(1.04)}}
+</style>
+</head>
+<body>
+
+<!-- OVERLAY: klik untuk masuk + autoplay -->
+<div id="enterOverlay">
+  <div class="ov-moon">🌙</div>
+  <div class="ov-title">Selamat Hari Raya</div>
+  <div class="ov-year">AIDILFITRI 1447H</div>
+  <button class="ov-btn">✦   BUKA UCAPAN ISTIMEWA   ✦</button>
+</div>
+
+<div class="card">
+  <canvas id="fw" width="412" height="951"></canvas>
+  <div class="sp" style="width:3px;height:3px;top:15%;left:6%;animation-delay:0s;"></div>
+  <div class="sp" style="width:2px;height:2px;top:28%;left:93%;animation-delay:.9s;"></div>
+  <div class="sp" style="width:3px;height:3px;top:50%;left:4%;animation-delay:1.5s;"></div>
+  <div class="sp" style="width:2px;height:2px;top:65%;left:95%;animation-delay:.4s;"></div>
+  <div class="sp" style="width:2px;height:2px;top:82%;left:6%;animation-delay:2s;"></div>
+
+  <!-- FIX: tutup tag <source> dengan betul -->
+  <audio id="audio" loop="">
+    <source src="media/Suasana%20Hari%20Raya%20-%20Anuar%20Zain%20%26%20Ellina.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="strip"></div>
+  <div class="lanterns-row">
+    <div class="lantern-group">
+      <div class="l-string"></div><div class="l-cap"></div><div class="l-body"></div>
+      <div class="l-base"></div><div class="l-tassel"><span></span><span></span><span></span></div>
+    </div>
+    <div class="moon-center">
+      <div class="moon-wrap"><div class="moon"></div><span class="star-icon">✦</span></div>
+    </div>
+    <div class="lantern-group">
+      <div class="l-string"></div><div class="l-cap"></div><div class="l-body"></div>
+      <div class="l-base"></div><div class="l-tassel"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="title-section">
+    <div class="eid-title">Selamat<br>Hari Raya</div>
+    <div class="eid-year">Aidilfitri 1447H</div>
+  </div>
+
+  <div class="divider">
+    <div class="div-line"></div>
+    <div class="div-gem"></div>
+    <div class="div-gem" style="margin:0 4px;width:5px;height:5px;"></div>
+    <div class="div-gem"></div>
+    <div class="div-line"></div>
+  </div>
+
+  <div class="message-box">
+    <div class="arabic-text">تَقَبَّلَ اللهُ مِنَّا وَمِنْكُم</div>
+    <div class="malay-text">
+      Di ambang Syawal yang mulia ini,<br>
+      angin berbisik membawa damai ke hati.<br>
+      Andai langkah pernah tersasar, kata pernah melukai,<br>
+      ku susun sepuluh jari memohon keampunan diri.<br>
+<br>
+      <strong>Selamat Hari Raya Aidilfitri 1447H / 2026M.</strong><br>
+      Semoga Allah mengampuni segala dosa,<br>
+      menerima amal kita,<br>
+      dan mengurniakan kebahagiaan yang berpanjangan.<br>
+      Maaf Zahir dan Batin dari kami sekeluarga. 🌙<br>
+    </div>
+  </div>
+
+  <div class="ketupat-banner">
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape hijau"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape emas"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape putih"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape coklat"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape emas"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape hijau"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape putih"></div></div>
+    <div class="kt-item"><div class="kt-string"></div><div class="kt-shape coklat"></div></div>
+  </div>
+
+  <div class="music-player">
+    <div class="player-row">
+      <div class="disc" id="disc"><div class="disc-inner"></div></div>
+      <div class="song-info">
+        <div class="s-title">Suasana Hari Raya</div>
+        <div class="s-artist">Anuar Zain & Ellina</div>
+      </div>
+    </div>
+    <div class="prog-bar" id="progBar">
+      <div class="prog-fill" id="progFill"></div>
+    </div>
+    <div class="time-row">
+      <span id="tCur">0:00</span>
+      <span id="tTot">0:00</span>
+    </div>
+    <div class="controls">
+      <button class="btn" id="btnRew" title="Rewind 10s">⏪</button>
+      <button class="btn btn-play" id="btnPlay">▶</button>
+      <button class="btn" id="btnFwd" title="Forward 10s">⏩</button>
+    </div>
+    <div class="vol-row">
+      <span class="vol-icon">🔈</span>
+      <input type="range" class="vol-slider" id="volSlider" min="0" max="1" step="0.01" value="0.8">
+      <span class="vol-icon">🔊</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">✦   DENGAN PENUH RASA SYUKUR   ✦</div>
+  </div>
+  <div class="strip"></div>
+</div>
+
+<script>
+const audio = document.getElementById('audio');
+const btnPlay = document.getElementById('btnPlay');
+const disc = document.getElementById('disc');
+const progFill = document.getElementById('progFill');
+const progBar = document.getElementById('progBar');
+const tCur = document.getElementById('tCur');
+const tTot = document.getElementById('tTot');
+const volSlider = document.getElementById('volSlider');
+const overlay = document.getElementById('enterOverlay');
+
+audio.volume = 0.8;
+
+function fmt(s){ return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0'); }
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  const pct = (audio.currentTime / audio.duration * 100).toFixed(1);
+  progFill.style.width = pct + '%';
+  tCur.textContent = fmt(audio.currentTime);
+});
+
+audio.addEventListener('loadedmetadata', () => {
+  tTot.textContent = fmt(audio.duration);
+});
+
+function setPlaying(p) {
+  btnPlay.textContent = p ? '⏸' : '▶';
+  disc.classList.toggle('playing', p);
+}
+
+// Overlay — klik untuk masuk & autoplay
+overlay.addEventListener('click', () => {
+  overlay.style.opacity = '0';
+  setTimeout(() => overlay.style.display = 'none', 800);
+  audio.play().then(() => {
+    setPlaying(true);
+    fireworksBurst();
+  }).catch(e => console.log('Audio error:', e));
+});
+
+btnPlay.addEventListener('click', () => {
+  if (audio.paused) { audio.play(); setPlaying(true); fireworksBurst(); }
+  else { audio.pause(); setPlaying(false); }
+});
+
+document.getElementById('btnRew').addEventListener('click', () => { audio.currentTime = Math.max(0, audio.currentTime - 10); });
+document.getElementById('btnFwd').addEventListener('click', () => { audio.currentTime = Math.min(audio.duration, audio.currentTime + 10); });
+
+progBar.addEventListener('click', (e) => {
+  const r = progBar.getBoundingClientRect();
+  const pct = (e.clientX - r.left) / r.width;
+  audio.currentTime = pct * audio.duration;
+});
+
+volSlider.addEventListener('input', () => { audio.volume = volSlider.value; });
+
+// Fireworks
+const cv = document.getElementById('fw');
+const cx = cv.getContext('2d');
+let parts = [];
+function resizeCv(){ cv.width=cv.parentElement.offsetWidth; cv.height=cv.parentElement.offsetHeight; }
+resizeCv(); window.addEventListener('resize', resizeCv);
+const COLS=['#c4b88a','#9A906B','#7ab040','#e8f8d0','#5a8c2a','#d4cca8'];
+function burst(x,y){ for(let i=0;i<28;i++){ const a=(i/28)*Math.PI*2,spd=1.5+Math.random()*2.8; parts.push({x,y,vx:Math.cos(a)*spd,vy:Math.sin(a)*spd,life:1,col:COLS[Math.floor(Math.random()*COLS.length)],sz:1.2+Math.random()*2}); } }
+function fireworksBurst(){ setTimeout(()=>burst(cv.width*.2,cv.height*.15),0); setTimeout(()=>burst(cv.width*.8,cv.height*.12),500); setTimeout(()=>burst(cv.width*.5,cv.height*.1),1000); }
+function loop(){ cx.clearRect(0,0,cv.width,cv.height); parts=parts.filter(p=>p.life>0); for(const p of parts){ cx.save();cx.globalAlpha=p.life;cx.fillStyle=p.col;cx.beginPath();cx.arc(p.x,p.y,p.sz,0,Math.PI*2);cx.fill();cx.restore(); p.x+=p.vx;p.y+=p.vy;p.vy+=0.045;p.life-=0.017; } requestAnimationFrame(loop); }
+loop();
+</script>
+
+
+</body></html>
